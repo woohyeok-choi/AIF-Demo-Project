@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+package aif.kaist;
+
+import "google/protobuf/empty.proto";
+
+option java_package = "aif.kaist.iclab.protos";
+option java_outer_classname = "AlarmProtos";
+
+message Alarm {
+    string alarm_id = 1;
+    string user_id = 2;
+    string content = 3;
+    string destination = 4;
+    int64 delay_millis = 5;
+    int64 interval_millis = 6;
+    int64 scheduled_time = 7;
+
+    message Query {
+        message List {
+            string user_id = 1;
+        }
+
+        message Get {
+            string user_id = 1;
+            string alarm_id = 2;
+        }
+
+        message Create {
+            string user_id = 1;
+            Alarm alarm = 2;
+        }
+
+        message Update {
+            string user_id = 1;
+            string alarm_id = 2;
+            Alarm alarm = 3;
+        }
+
+        message Delete {
+            string user_id = 1;
+            string alarm_id = 2;
+        }
+    }
+}
+
+service AlarmScheduleService {
+    rpc ListAlarm(Alarm.Query.List) returns (stream Alarm) {}
+    rpc GetAlarm(Alarm.Query.Get) returns (Alarm) {}
+    rpc CreateAlarm(Alarm.Query.Create) returns (Alarm) {}
+    rpc UpdateAlarm(Alarm.Query.Update) returns (Alarm) {}
+    rpc DeleteAlarm(Alarm.Query.Delete) returns (google.protobuf.Empty) {}
+}
+
+service AlarmReceiverService {
+    rpc ReceiveAlarm(Alarm) returns (google.protobuf.Empty) {}
+}

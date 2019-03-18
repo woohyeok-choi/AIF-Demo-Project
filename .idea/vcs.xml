@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/ABC-Platform-External-Api-Python-Client" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ABC-Platform-External-Api-Python-Client/protos" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ABC-Platform-for-External-Api-Server" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ABC-Platform-for-External-Api-Server/protos" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/AIF-Client" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/AIF-Client/protos" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/AIF-Server" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/AIF-Server/protos" vcs="Git" />
+  </component>
+</project>

@@ -1,0 +1,44 @@
+version: '3.5'
+services:
+  aif-demo:
+    image: woohyeokchoi/google-fitness-backend
+    networks:
+      - aif-network
+    ports:
+      - "5000:8080"
+      - "6000:50051"
+    deploy:
+      replicas: 1
+      restart_policy: 
+        delay: 5s
+        max_attempts: 10
+      placement:
+        constraints:
+          - node.role == manager
+  proxy:
+    image: woohyeokchoi/nginx-https
+    ports:
+      - "80:80"
+      - "443:443"
+      - "50051:50051"
+    environment:
+      SERVER_DOMAIN: "aif.kaist.ac.kr"
+      SERVER_EMAIL: "keltpower0@gmail.com"
+      IS_DEBUG: "false"
+    volumes:
+      - "/home/aiflagship/external-api-server/conf:/home/conf/nginx"
+    networks:
+      - web-network
+    deploy:
+      replicas: 1
+      restart_policy: 
+        delay: 10s
+        max_attempts: 10
+      placement:
+        constraints:
+          - node.role == manager
+
+networks:
+  web-network:
+    driver: overlay
+    attachable: true

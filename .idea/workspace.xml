@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="04815db6-593e-45de-b4bb-ac6ccd5d066f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/AIF-Server/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIF-Server/src/main/kotlin/kaist/iclab/abc/api/FitbitWebApis.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIF-Server/src/main/kotlin/kaist/iclab/abc/api/GoogleFitApi.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIF-Server/src/main/kotlin/kaist/iclab/abc/api/GrpcApi.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIF-Server/src/main/kotlin/kaist/iclab/abc/api/OAuth2WebApi.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIF-Server/src/main/kotlin/kaist/iclab/abc/common/Extensions.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIF-Server/src/main/kotlin/kaist/iclab/abc/common/Utils.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIF-Server/src/main/kotlin/kaist/iclab/abc/grpc/TestGrpc.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIF-Server/src/main/kotlin/kaist/iclab/abc/oauth2/MemoryTokenStore.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIF-Server/src/main/kotlin/kaist/iclab/abc/oauth2/OAuth2Token.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIF-Server/src/main/kotlin/kaist/iclab/abc/oauth2/RedisTokenStore.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIF-Server/src/main/kotlin/kaist/iclab/abc/oauth2/TokenStore.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIF-Server/src/main/kotlin/kaist/iclab/abc/router/GoogleFitRouter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIF-Server/src/main/resources/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIF-Server/src/main/resources/static/css/semantic.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIF-Server/src/main/resources/static/js/semantic.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIF-Server/src/main/resources/templates/google-fit/data.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIF-Server/src/main/resources/templates/google-fit/index.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AIF-Server/src/main/resources/templates/head.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AIF-Client/.idea/ABC-Platform-External-Api-Python-Client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AIF-Client/.idea/ABC-Platform-External-Api-Python-Client.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AIF-Client/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AIF-Client/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AIF-Client/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AIF-Client/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AIF-Client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AIF-Client/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AIF-Client/protos/iclab/abc/api.proto" beforeDir="false" afterPath="$PROJECT_DIR$/AIF-Client/protos/iclab/abc/api.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AIF-Client/protos/iclab/abc/common.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AIF-Client/protos/iclab/abc/experiment.proto" beforeDir="false" afterPath="$PROJECT_DIR$/AIF-Client/protos/iclab/abc/experiment.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AIF-Client/protos/iclab/abc/mesh_up/calendar.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AIF-Client/protos/iclab/abc/mesh_up/weather.proto" beforeDir="false" afterPath="$PROJECT_DIR$/AIF-Client/protos/iclab/abc/mesh_up/weather.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AIF-Client/protos/iclab/abc/resource.proto" beforeDir="false" afterPath="$PROJECT_DIR$/AIF-Client/protos/iclab/abc/resource.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AIF-Server/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AIF-Server/.gitmodules" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AIF-Server/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AIF-Server/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AIF-Server/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AIF-Server/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AIF-Server/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AIF-Server/protos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AIF-Server/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AIF-Server/src/credentials.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AIF-Server/src/main/kotlin/kaist/iclab/abc/Main.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AIF-Server/src/main/kotlin/kaist/iclab/abc/TestClient.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AIF-Server/src/main/kotlin/kaist/iclab/abc/api/GoogleCalendarApis.kt" beforeDir="false" afterPath="$PROJECT_DIR$/AIF-Server/src/main/kotlin/kaist/iclab/abc/api/GoogleCalendarApi.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AIF-Server/src/main/kotlin/kaist/iclab/abc/common/Exceptions.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AIF-Server/src/main/kotlin/kaist/iclab/abc/grpc/GoogleCalendarGrpc.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AIF-Server/src/main/kotlin/kaist/iclab/abc/grpc/Utils.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AIF-Server/src/main/resources/application.conf" beforeDir="false" afterPath="$PROJECT_DIR$/AIF-Server/src/main/resources/static/css/main.css" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/protos/calendar.proto">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="38">
+              <caret line="29" column="1" lean-forward="true" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AIF-Server/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="551">
+              <caret line="29" column="22" lean-forward="true" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protos/date.proto">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="38">
+              <caret line="2" column="23" selection-start-line="2" selection-end-line="2" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/AIF-Server" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/protos/common.proto" />
+        <option value="$PROJECT_DIR$/protos/date.proto" />
+        <option value="$PROJECT_DIR$/protos/calendar.proto" />
+        <option value="$PROJECT_DIR$/AIF-Server/build.gradle" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="AI Flagship" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AI Flagship" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AI Flagship" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AI Flagship" type="462c0819:PsiDirectoryNode" />
+              <item name="AIF-Server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AI Flagship" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AI Flagship" type="462c0819:PsiDirectoryNode" />
+              <item name="protos" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/AIF-Server" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Workspace\Projects\AI Flagship\protos" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="04815db6-593e-45de-b4bb-ac6ccd5d066f" name="Default Changelist" comment="" />
+      <created>1552614493466</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1552614493466</updated>
+      <workItem from="1552614494791" duration="677000" />
+      <workItem from="1552615208314" duration="110000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="787000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25266525" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/protos/date.proto">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="23" selection-start-line="2" selection-end-line="2" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AIF-Server/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="29" column="22" lean-forward="true" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protos/calendar.proto">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="29" column="1" lean-forward="true" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>11</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

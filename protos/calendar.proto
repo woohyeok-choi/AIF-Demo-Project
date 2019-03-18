@@ -1,0 +1,140 @@
+syntax = "proto3";
+
+package aif.kaist;
+
+import "date.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
+
+option java_package = "aif.kaist.iclab.protos";
+option java_outer_classname = "CalendarProtos";
+
+enum CalendarEventStatus {
+    STATUS_UNDEFINED = 0;
+    STATUS_CONFIRMED = 1;
+    STATUS_TENTATIVE = 2;
+    STATUS_CANCELLED = 3;
+}
+
+enum CalendarReminderMethod {
+    REMINDER_UNDEFINED = 0;
+    REMINDER_EMAIL = 1;
+    REMINDER_SMS = 2;
+    REMINDER_POPUP = 3;
+}
+
+message GoogleCalendar {
+    google.protobuf.StringValue id = 1;
+    google.protobuf.StringValue summary = 2;
+    google.protobuf.StringValue description = 3;
+    google.protobuf.StringValue location = 4;
+    google.protobuf.StringValue timezone = 5;
+
+    message Query {
+        message List {
+            string user_id = 1;
+            google.protobuf.Int32Value limit = 2;
+        }
+
+        message Get {
+            string user_id = 1;
+            string calendar_id = 2;
+        }
+
+        message Create {
+            string user_id = 1;
+            GoogleCalendar calendar = 2;
+        }
+
+        message Update {
+            string user_id = 1;
+            string calendar_id = 2;
+            GoogleCalendar calendar = 3;
+        }
+
+        message Delete {
+            string user_id = 1;
+            string calendar_id = 2;
+        }
+    }
+}
+
+message GoogleCalendarEvent {
+    google.protobuf.StringValue id = 1;
+    CalendarEventStatus status = 2;
+    google.protobuf.StringValue html_link = 3;
+    aif.kaist.DateTime created = 4;
+    aif.kaist.DateTime updated = 5;
+    google.protobuf.StringValue summary = 6;
+    google.protobuf.StringValue description = 7;
+    google.protobuf.StringValue location = 8;
+    GoogleCalendarUser creator = 9;
+    GoogleCalendarUser organizer = 10;
+    aif.kaist.DateTime start = 11;
+    google.protobuf.StringValue start_timezone = 12;
+    aif.kaist.DateTime end = 13;
+    google.protobuf.StringValue end_timezone = 14;
+    repeated GoogleCalendarUser attendees = 15;
+    repeated GoogleCalendarReminder reminders = 16;
+
+    message Query {
+        message List {
+            string user_id = 1;
+            string calendar_id = 2;
+            google.protobuf.Int32Value limit = 3;
+            aif.kaist.DateTime startTime = 4;
+            aif.kaist.DateTime endTime = 5;
+        }
+
+        message Get {
+            string user_id = 1;
+            string calendar_id = 2;
+            string event_id = 3;
+        }
+
+        message Create {
+            string user_id = 1;
+            string calendar_id = 2;
+            GoogleCalendarEvent event = 3;
+        }
+
+        message Update {
+            string user_id = 1;
+            string calendar_id = 2;
+            string event_id = 3;
+            GoogleCalendarEvent event = 4;
+        }
+
+        message Delete {
+            string user_id = 1;
+            string calendar_id = 2;
+            string event_id = 3;
+        }
+    }
+}
+
+message GoogleCalendarUser {
+    google.protobuf.StringValue id = 1;
+    google.protobuf.StringValue email = 2;
+    google.protobuf.StringValue display_name = 3;
+    google.protobuf.BoolValue self = 4;
+}
+
+message GoogleCalendarReminder {
+    CalendarReminderMethod method = 1;
+    google.protobuf.Int32Value minutes = 2;
+}
+
+service GoogleCalendarService {
+    rpc ListGoogleCalendar(GoogleCalendar.Query.List) returns (stream GoogleCalendar) {}
+    rpc GetGoogleCalendar(GoogleCalendar.Query.Get) returns (GoogleCalendar) {}
+    rpc CreateGoogleCalendar(GoogleCalendar.Query.Create) returns (GoogleCalendar) {}
+    rpc UpdateGoogleCalendar(GoogleCalendar.Query.Update) returns (GoogleCalendar) {}
+    rpc DeleteGoogleCalendar(GoogleCalendar.Query.Delete) returns (google.protobuf.Empty) {}
+
+    rpc ListGoogleCalendarEvent(GoogleCalendarEvent.Query.List) returns (stream GoogleCalendarEvent) {}
+    rpc GetGoogleCalendarEvent(GoogleCalendarEvent.Query.Get) returns (GoogleCalendarEvent) {}
+    rpc CreateGoogleCalendarEvent(GoogleCalendarEvent.Query.Create) returns (GoogleCalendarEvent) {}
+    rpc UpdateGoogleCalendarEvent(GoogleCalendarEvent.Query.Update) returns (GoogleCalendarEvent) {}
+    rpc DeleteGoogleCalendarEvent(GoogleCalendarEvent.Query.Delete) returns (google.protobuf.Empty) {}
+}
