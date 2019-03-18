@@ -1,7 +1,7 @@
 version: '3.5'
 services:
   aif-demo:
-    image: woohyeokchoi/google-fitness-backend
+    image: woohyeokchoi/aif-demo-project
     networks:
       - web-network
     ports:
@@ -10,6 +10,8 @@ services:
     environment:
       CALLBACK_URL: "https://keltpower0.kaist.ac.kr/apis/external/types/google-calendar/auth"
       CREDENTIAL_PATH: "/home/aif-demo/credentials.json"
+    volumes:
+      - "D:/Workspace/Projects/AIF-Demo-Project/credentials:/home/aif-demo"
     deploy:
       replicas: 1
       restart_policy: 
@@ -29,7 +31,7 @@ services:
       SERVER_EMAIL: "keltpower0@gmail.com"
       IS_DEBUG: "true"
     volumes:
-      - "D:/Workspace/Projects/AI Flagship/conf:/home/conf/nginx"
+      - "D:/Workspace/Projects/AIF-Demo-Project/conf:/home/conf/nginx"
     networks:
       - web-network
     deploy:
