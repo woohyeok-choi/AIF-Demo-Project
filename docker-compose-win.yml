@@ -1,17 +1,17 @@
 version: '3.5'
 services:
-  aif-demo:
+  main:
     image: woohyeokchoi/aif-demo-project
     networks:
       - web-network
     ports:
-      - "8080:8080"
-      - "50051:50051"
+      - "5000:8080"
+      - "6000:50051"
     environment:
       CALLBACK_URL: "https://keltpower0.kaist.ac.kr/apis/external/types/google-calendar/auth"
       CREDENTIAL_PATH: "/home/aif-demo/credentials.json"
     volumes:
-      - "D:/Workspace/Projects/AIF-Demo-Project/credentials:/home/aif-demo"
+      - "D:/Workspace/Projects/AIF-Demo-Project/credentials/:/home/aif-demo/"
     deploy:
       replicas: 1
       restart_policy: 
