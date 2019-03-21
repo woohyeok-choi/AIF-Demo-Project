@@ -1,11 +1,12 @@
 FROM openjdk:8-jre-alpine
 LABEL MAINTAINER="Woohyeok Choi <woohyeok.choi@kaist.ac.kr>"
 
-RUN mkdir -p /home/app
-COPY ./aif-demo-server-1.0.0.jar /home/aif-demo-server.jar
+RUN mkdir -p /home/app/token
+COPY ./aif-demo-server-1.0.0.jar /home/app/aif-demo-server.jar
 
 ENV CALLBACK_URL ""
 ENV CREDENTIAL_PATH ""
+ENV TOKEN_PATH "/home/app/token"
 
 EXPOSE 8080 50051
 
@@ -19,6 +20,7 @@ CMD [ "sh", "-c", "/usr/lib/jvm/java-1.8-openjdk/jre/bin/java \
 -XX:+UseG1GC \
 -XX:MaxGCPauseMillis=100 \
 -XX:+UseStringDeduplication \
--jar /home/aif-demo-server.jar \
+-jar /home/app/aif-demo-server.jar \
+--token_path=${TOKEN_PATH} \
 --callback_url=${CALLBACK_URL} \
 --credential_path=${CREDENTIAL_PATH}"]

@@ -9,7 +9,9 @@ import io.ktor.application.call
 import io.ktor.application.install
 import io.ktor.features.CORS
 import io.ktor.features.DefaultHeaders
+import io.ktor.features.StatusPages
 import io.ktor.html.respondHtml
+import io.ktor.response.respond
 import io.ktor.routing.Routing
 import io.ktor.routing.get
 import io.ktor.server.engine.applicationEngineEnvironment
@@ -23,12 +25,13 @@ import java.net.URL
 class Setting private constructor(
     val callbackRouteUrl: String,
     val callbackUrl: String,
-    val credentialPath: String
+    val credentialPath: String,
+    val tokenPath: String
 ) {
     val calendarApi: GoogleCalendarApis = GoogleCalendarApis.newBuilder()
         .setCallbackUrl(callbackUrl)
         .setCredentialPath(credentialPath)
-        .setTokenPath("./token")
+        .setTokenPath(tokenPath)
         .build()
 
     val alarmApi: AlarmApis = AlarmApis.newInstance()
@@ -36,6 +39,7 @@ class Setting private constructor(
     class Builder {
         private var callbackUrl: String? = null
         private var credentialPath: String? = null
+        private var tokenPath: String? = null
 
         fun setCallbackUrl(url : String) : Builder {
             callbackUrl = url
@@ -47,11 +51,17 @@ class Setting private constructor(
             return this
         }
 
+        fun setTokenPath (path: String) : Builder {
+            tokenPath = path
+            return this
+        }
+
         fun build() : Setting {
             Preconditions.checkNotNullEmpty(
                 mapOf(
                     "credentialPath" to credentialPath,
-                    "callbackUrl" to callbackUrl
+                    "callbackUrl" to callbackUrl,
+                    "tokenPath" to tokenPath
                 )
             )
 
@@ -59,27 +69,30 @@ class Setting private constructor(
                 "Arguments: \n" +
                         "- callbackUrl = $callbackUrl \n" +
                         "- callbackRouteUrl = ${URL(callbackUrl!!).path} \n" +
-                        "- credentialPath = $credentialPath"
+                        "- credentialPath = $credentialPath \n" +
+                        "- tokenPath = $tokenPath"
             )
 
             return Setting(
                 callbackUrl = callbackUrl!!,
                 callbackRouteUrl = URL(callbackUrl!!).path,
-                credentialPath = credentialPath!!
+                credentialPath = credentialPath!!,
+                tokenPath = tokenPath!!
             )
         }
 
         fun buildFromArgs(args: Array<String>) : Setting {
             val argMap = args.associate { Pair(it.split("=")[0].trim(), it.split("=")[1].trim()) }
-            val availableOptions = arrayOf("--callback_url", "--credential_path")
+            val availableOptions = arrayOf("--callback_url", "--credential_path", "--token_path")
 
             val isValid = availableOptions.all { argMap.containsKey(it) }
 
-            if (!isValid) throw IllegalArgumentException("Illegal options: options, --callback_url and --credential_path, should be specified. ")
+            if (!isValid) throw IllegalArgumentException("Illegal options: options, --callback_url, --token_path and --credential_path, should be specified. ")
 
             return Builder()
                 .setCallbackUrl(argMap.getValue("--callback_url"))
                 .setCredentialPath(argMap.getValue("--credential_path"))
+                .setTokenPath(argMap.getValue("--token_path"))
                 .build()
         }
     }
@@ -89,6 +102,26 @@ fun Application.web(setting: Setting) {
     install(DefaultHeaders)
 
     install(CORS)
+
+    install(StatusPages) {
+        exception<Throwable> { cause ->
+            call.respondHtml {
+                head {
+                    title {
+                        + "Error"
+                    }
+                }
+                body {
+                    h1 {
+                        + "Error"
+                    }
+                    h4 {
+                        + cause.localizedMessage
+                    }
+                }
+            }
+        }
+    }
 
     install(Routing) {
         get(setting.callbackRouteUrl) {
