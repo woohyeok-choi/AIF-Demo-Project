@@ -55,6 +55,13 @@ class Setting private constructor(
                 )
             )
 
+            println(
+                "Arguments: \n" +
+                        "- callbackUrl = $callbackUrl \n" +
+                        "- callbackRouteUrl = ${URL(callbackUrl!!).path} \n" +
+                        "- credentialPath = $credentialPath"
+            )
+
             return Setting(
                 callbackUrl = callbackUrl!!,
                 callbackRouteUrl = URL(callbackUrl!!).path,
@@ -119,22 +126,6 @@ fun Application.web(setting: Setting) {
                             + "Hello, $state"
                         }
                     }
-                }
-            }
-        }
-
-        get("/") {
-            call.respondHtml {
-                head {
-                    title {
-                        + "Main"
-                    }
-                }
-                body {
-                    h1 {
-                        + "Test page"
-                    }
-
                 }
             }
         }

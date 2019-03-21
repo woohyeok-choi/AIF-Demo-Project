@@ -11,3 +11,14 @@
 hs_err_pid*
 credentials.json
 *.bat
+conf/
+
+AIF-Client/\.idea/
+
+AIF-Server/\.gradle/
+
+AIF-Server/\.idea/
+
+*.sh
+
+AIF-Server/build/
