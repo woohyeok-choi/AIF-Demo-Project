@@ -1,5 +1,6 @@
 import api.AlarmApis
 import api.GoogleCalendarApis
+import com.google.common.base.Throwables
 import common.Preconditions
 import grpc.AlarmGrpc
 import grpc.GoogleCalendarGrpc
@@ -117,6 +118,9 @@ fun Application.web(setting: Setting) {
                     }
                     h4 {
                         + cause.localizedMessage
+                    }
+                    p {
+                        + Throwables.getStackTraceAsString(cause)
                     }
                 }
             }
