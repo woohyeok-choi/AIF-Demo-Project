@@ -2,7 +2,7 @@ FROM openjdk:8-jre-alpine
 LABEL MAINTAINER="Woohyeok Choi <woohyeok.choi@kaist.ac.kr>"
 
 RUN mkdir -p /home/app/token
-COPY ./aif-demo-server-1.0.1.jar /home/app/aif-demo-server.jar
+COPY ./aif-demo-server-1.0.2.jar /home/app/aif-demo-server.jar
 
 ENV CALLBACK_URL ""
 ENV CREDENTIAL_PATH ""
