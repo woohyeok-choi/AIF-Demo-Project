@@ -100,10 +100,10 @@ def run_use_cases(address: str, user_id: str, receiver_server_address: str):
 
 
 if __name__ == '__main__':
-    aif_server_address = 'aif.kaist.ac.kr:50051'
-    your_user_id = 'should-set-your-id'  # should set user id
-    receiver_address = 'should-set-your-receiver-server-address'  # should set receiver address
+    aif_server_address = 'localhost:50051'
+    your_user_id = 'your_id'  # should set user id
+    receiver_address = 'keltpower0.kaist.ac.kr:50052'  # should set receiver address
 
-    run_calendar(aif_server_address, your_user_id)
-    run_alarm(aif_server_address, your_user_id, receiver_address)
+    #run_calendar(aif_server_address, your_user_id)
+    #run_alarm(aif_server_address, your_user_id, receiver_address)
     run_use_cases(aif_server_address, your_user_id, receiver_address)

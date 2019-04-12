@@ -5,7 +5,6 @@ from calendar_pb2 import GoogleCalendar, GoogleCalendarEvent
 from calendar_pb2_grpc import GoogleCalendarServiceStub
 
 from datetime import datetime
-from dateutil import tz
 
 from examples.utils import grpc_call, datetime_to_protobuf
 

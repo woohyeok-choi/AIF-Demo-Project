@@ -183,7 +183,8 @@ fun main(args: Array<String>) {
     val setting = if(args.isEmpty()) {
         Setting.Builder()
             .setCallbackUrl("http://localhost")
-            .setCredentialPath("../credentials/credentials.json")
+            .setCredentialPath("./credentials.json")
+            .setTokenPath("./token")
             .build()
     } else {
         Setting.Builder().buildFromArgs(args)
@@ -196,7 +197,7 @@ fun main(args: Array<String>) {
 
         connector {
             host = "0.0.0.0"
-            port = 8080
+            port = 80
         }
     }
     embeddedServer(Netty, env).start(false)

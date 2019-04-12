@@ -1,6 +1,6 @@
 from functools import wraps
 import grpc
-from datetime import datetime
+from datetime import datetime, tzinfo
 from dateutil import tz
 
 from date_pb2 import DateTime
@@ -23,12 +23,13 @@ def grpc_call(func):
                 for k, v in e.trailing_metadata():
                     if k == 'auth_url':
                         print("\t - Authorization in this link: {}".format(v))
+            raise e
     return grpc_call_wrapper
 
 
 def datetime_to_protobuf(t: datetime) -> DateTime:
     return DateTime(
-        utc_offset_min=int(t.utcoffset().seconds / 60) if t.utcoffset() is not None else 0,
+        utc_offset_min=int(t.utcoffset().seconds / 60) if t.utcoffset() else 0,
         year=t.year,
         month=t.month,
         day=t.day,
@@ -51,8 +52,10 @@ def protobuf_to_datetime(pb: DateTime) -> datetime:
     )
 
 
-def merge_datetime(year: int = None, month: int = None, day: int = None, hour: int = None, minute: int = None, second: int = None):
-    now = datetime.now()
+def merge_datetime(year: int = None, month: int = None, day: int = None,
+                   hour: int = None, minute: int = None, second: int = None,
+                   timezone: tzinfo = tz.tzoffset('KST', 9 * 60 * 60)):
+    now = datetime.now(timezone)
     return datetime(
         year=year if year is not None else now.year,
         month=month if month is not None else now.month,
@@ -60,5 +63,5 @@ def merge_datetime(year: int = None, month: int = None, day: int = None, hour: i
         hour=hour if hour is not None else now.hour,
         minute=minute if minute is not None else now.minute,
         second=second if second is not None else now.second,
-        tzinfo=now.tzinfo if now.tzinfo else tz.tzoffset('TMP2', 0)
+        tzinfo=timezone
     )

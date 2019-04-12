@@ -197,7 +197,7 @@ fun DateTime.toProtobuf(): DateProtos.DateTime {
     val model = this
 
     return GregorianCalendar.getInstance(GMT).apply {
-        timeInMillis = model.value + (model.timeZoneShift * 60000)
+        timeInMillis = model.value
     }.let {
         DateProtos.DateTime.newBuilder()
             .setYear(it.get(GregorianCalendar.YEAR))
@@ -217,7 +217,7 @@ fun DateProtos.DateTime.toDateTimeModel() : DateTime {
         clear()
         set(pb.year, pb.month - 1, pb.day, pb.hour, pb.minute, pb.second)
     }.timeInMillis.let {
-        DateTime(pb.dateOnly, it + (pb.utcOffsetMin * 60000), pb.utcOffsetMin)
+        DateTime(pb.dateOnly, it - (pb.utcOffsetMin * 60000), pb.utcOffsetMin)
     }
 }
 

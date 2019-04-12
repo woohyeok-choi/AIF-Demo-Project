@@ -10,7 +10,7 @@ import time
 # Use case 1: Find free time slots for schedule another appointments (e.g., exercise)
 def find_free_time_slots(stub: GoogleCalendarServiceStub, user_id: str):
     # Add dummy calendar for this use case
-    dummy_calendar = calendar.create_calendar(stub, user_id, 'dummy-calendar')
+    dummy_calendar = calendar.create_calendar(stub, user_id, 'dummy-calendar', timezone='Asia/Seoul')
     dummy_calendar_id = dummy_calendar.id.value
 
     # Assume that there are some events already scheduled as followings:
@@ -65,7 +65,7 @@ def find_free_time_slots(stub: GoogleCalendarServiceStub, user_id: str):
             free_slots.append((s, e))
 
     # Finally, delete dummy calendar
-    calendar.delete_calendar(stub, user_id, dummy_calendar_id)
+    # calendar.delete_calendar(stub, user_id, dummy_calendar_id)
 
     return free_slots
 

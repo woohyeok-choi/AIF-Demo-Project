@@ -1,0 +1,53 @@
+version: '3.5'
+services:
+  main:
+    image: test
+    networks:
+      - internal-network
+    environment:
+      CALLBACK_URL: "http://keltpower0.kaist.ac.kr/apis/external/types/google-calendar/auth"
+      CREDENTIAL_PATH: "/home/aif-demo/credentials.json"
+    volumes:
+      - "d:/Workspace/Projects/AIF-Demo-Project/credentials:/home/aif-demo"
+    deploy:
+      replicas: 1
+      restart_policy: 
+        delay: 5s
+        max_attempts: 10
+      placement:
+        constraints:
+          - node.role == manager
+  proxy:
+    image: woohyeokchoi/nginx-https
+    ports:
+      - "80:80"
+      - "443:443"
+      - "50051:50051"
+    environment:
+      SERVER_DOMAIN: "keltpower0.kaist.ac.kr"
+      SERVER_EMAIL: "aiflagship.iclab@gmail.com"
+      IS_DEBUG: "true"
+    volumes:
+      - "D:/Workspace/Projects/AIF-Demo-Project/conf:/home/conf/nginx"
+    networks:
+      - internal-network
+      - external-network
+    deploy:
+      replicas: 1
+      restart_policy: 
+        delay: 10s
+        max_attempts: 10
+      placement:
+        constraints:
+          - node.role == manager
+
+networks:
+  internal-network:
+    driver: overlay
+    attachable: true
+    internal: true
+  external-network:
+    driver: overlay
+    attachable: true
+
+
