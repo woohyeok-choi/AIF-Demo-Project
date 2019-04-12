@@ -197,7 +197,7 @@ fun main(args: Array<String>) {
 
         connector {
             host = "0.0.0.0"
-            port = 80
+            port = 8080
         }
     }
     embeddedServer(Netty, env).start(false)
